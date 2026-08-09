@@ -1,0 +1,13 @@
+{
+  "name": "t3n-audit-log-quickstart",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "T3N ADK Quickstart for Superteam Earn submission",
+  "scripts": {
+    "start": "npx tsx quickstart.ts"
+  },
+  "dependencies": {
+    "@terminal3/t3n-sdk": "*",
+    "tsx": "*"
+  }
+}

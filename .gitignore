@@ -1,0 +1,4 @@
+target/
+*.wasm
+*.zip
+node_modules/

@@ -1,0 +1,40 @@
+/// z-audit-log — Trusted Agent Audit Log showcase for T3N z-space.
+///
+/// A lightweight TEE contract that demonstrates the core T3N ADK patterns:
+///   - tenant-context: reading the tenant DID and cluster timestamp
+///   - logging: emitting structured log records
+///   - kv-store: reading and writing to the tenant's z: KV maps
+///
+/// Use case: AI agents record tamper-proof audit events in the TEE.
+/// Each event is timestamped and stored in KV, creating an immutable
+/// audit trail that proves what an agent did and when.
+///
+/// No HTTP, no external API — only host interfaces every tenant has.
+package z:audit-log@0.1.0;
+
+world audit-log {
+    import host:tenant/tenant-context@1.0.0;
+    import host:interfaces/logging@2.1.0;
+    import host:interfaces/kv-store@2.1.0;
+
+    export contracts;
+}
+
+interface contracts {
+    /// Standard 3-field envelope used by all contracts callable from the node.
+    record generic-input {
+        input:        option<list<u8>>,
+        user-profile: option<list<u8>>,
+        context:      option<list<u8>>,
+    }
+
+    /// Record an audit event with a type and optional metadata.
+    /// Input  (JSON): { event_type: string, metadata: string }
+    /// Output (JSON): { id: string, timestamp: string, event_type: string }
+    record-event: func(req: generic-input) -> result<list<u8>, string>;
+
+    /// List recent audit events from the KV store.
+    /// Input  (JSON): { limit: number (1-100) }
+    /// Output (JSON): { events: [{ id, timestamp, event_type, metadata }] }
+    list-events: func(req: generic-input) -> result<list<u8>, string>;
+}
