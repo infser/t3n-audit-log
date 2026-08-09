@@ -1,4 +1,4 @@
-# T3N ADK Bounty Submission — Trusted Agent Audit Log
+# T3N ADK Bounty Submission - Trusted Agent Audit Log
 
 **Superteam Earn**: [Create Agent ID, claim free tokens, & deploy first RUST contract on the network](https://superteam.fun/earn/listing/ai-id)  
 **Bounty by**: LOL ventures  
@@ -11,12 +11,12 @@
 
 This submission completes all requirements of the LOL ventures T3N ADK bounty:
 
-1. ✅ **Sign up via SSO** — claimed Agent ID and API key
-2. ✅ **Quickstart** — connected to T3N testnet via TypeScript SDK
-3. ✅ **Walkthrough** — understood the TEE contract model
-4. ✅ **Deploy first Rust contract** — custom `z-audit-log` contract
-5. ✅ **Bug report** — documented findings
-6. ✅ **Bonus use case** — Agent Accountability via Trusted Audit Log
+1. ✅ **Sign up via SSO** - claimed Agent ID and API key
+2. ✅ **Quickstart** - connected to T3N testnet via TypeScript SDK
+3. ✅ **Walkthrough** - understood the TEE contract model
+4. ✅ **Deploy first Rust contract** - custom `z-audit-log` contract
+5. ✅ **Bug report** - documented findings
+6. ✅ **Bonus use case** - Agent Accountability via Trusted Audit Log
 
 ## Quickstart
 
@@ -74,9 +74,9 @@ Cargo.toml                  ← cdylib + lib, wit-bindgen 0.49
 
 ### Host capabilities
 
-- `tenant_context` — tenant DID + cluster timestamp
-- `logging` — structured log records
-- `kv_store` — persistent event storage in z: namespace
+- `tenant_context` - tenant DID + cluster timestamp
+- `logging` - structured log records
+- `kv_store` - persistent event storage in z: namespace
 
 ### Build
 
@@ -111,7 +111,7 @@ The `wit/deps/` files from `z-tenant-flight` reference contain multiple
 WIT packages. When creating a new world with a subset of host interfaces,
 developers must ensure only the needed `package.wit` files are vendored.
 
-## Bonus: Use Case — Agent Accountability
+## Bonus: Use Case - Agent Accountability
 
 **Problem**: When an AI agent executes financial transactions on behalf
 of a user, there is no tamper-proof record of what the agent did. If
@@ -133,7 +133,7 @@ The audit log is:
 - **Immutable**: events are append-only, counter prevents deletion
 - **Verifiable**: any auditor can call `list-events` to retrieve the trail
 
-This creates an **agent-to-human trust bridge** — the agent can prove
+This creates an **agent-to-human trust bridge** - the agent can prove
 exactly what it did and when.
 
 ## Repository Structure
